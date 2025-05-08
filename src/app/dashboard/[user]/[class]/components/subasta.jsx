@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const Subasta = () => {
-  const [title, setTitle] = useState('Nueva subasta');
+  const [title, setTitle] = useState('');
   const [count, setCount] = useState(0);
 
   const handleTitleChange = (e) => {
@@ -25,8 +25,8 @@ const Subasta = () => {
         type="text"
         value={title}
         onChange={handleTitleChange}
-        className="w-full text-xl font-light mb-6 p-2 border-b border-green-200 focus:outline-none focus:border-green-400 bg-transparent dark:text-gray-800 transition-colors duration-200 placeholder-gray-400"
-        placeholder="Auction Title"
+        className="w-full text-xl font-light text-black mb-6 p-2 border-b border-green-200 focus:outline-none focus:border-green-400 bg-transparent dark:text-gray-800 transition-colors duration-200 placeholder-gray-400"
+        placeholder="Titulo para la subasta"
       />
       <div className="flex items-center justify-center space-x-8 mt-2">
         <button

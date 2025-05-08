@@ -13,15 +13,15 @@ export default function Home() {
         <div className="flex items-center space-x-4">
           <Link
             href="/login"
-            className="px-4 py-2 text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-100 transition-colors duration-200"
+            className="px-4 cursor-pointer py-2 text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-100 transition-colors duration-200"
           >
-            Log in
+              Iniciar sesión
           </Link>
           <Link
             href="/signup"
-            className="px-4 py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 transition-colors duration-200 font-medium"
+            className="px-4 cursor-pointer py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 transition-colors duration-200 font-medium"
           >
-            Sign up
+            Crear cuenta
           </Link>
         </div>
       </nav>
@@ -31,7 +31,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-10 w-[70%] text-white relative">
           <h1 className="text-5xl font-bold">Bachi<span className="text-amber-300">Coins</span> para todos</h1>
-          <p>
+          <p className="text-xl">
           Este sistema introduce una moneda virtual interna que funciona como un mecanismo de reconocimiento y motivación para los estudiantes. 
           A través de la acumulación de estas monedas, obtenidas por logros académicos, comportamiento ejemplar o participación extracurricular,
           los alumnos pueden acceder a recompensas, beneficios o experiencias exclusivas dentro del entorno escolar.
@@ -40,7 +40,7 @@ export default function Home() {
       </main>
       <div className="py-20 px-10 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Top Students Ranking</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Ranking de estudiantes top</h2>
           <div className="bg-white rounded-lg shadow overflow-hidden">
             <div className="flex items-center justify-between p-4 border-b">
               <div className="relative">
@@ -96,7 +96,7 @@ export default function Home() {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">6A</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">551</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <span className="text-amber-500 font-bold">42</span>
@@ -121,7 +121,7 @@ export default function Home() {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">6B</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">105</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <span className="text-amber-500 font-bold">18</span>
@@ -146,7 +146,7 @@ export default function Home() {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">6A</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">403</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <span className="text-amber-500 font-bold">33</span>
@@ -171,7 +171,7 @@ export default function Home() {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">6C</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">405</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <span className="text-amber-500 font-bold">27</span>

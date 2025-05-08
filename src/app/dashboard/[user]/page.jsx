@@ -87,7 +87,7 @@ const page = () => {
             className="flex items-center cursor-pointer space-x-2 px-6 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all duration-200 text-sm font-medium shadow-sm hover:shadow"
           >
             <FaPlus className="text-sm" />
-            <span>Create Group</span>
+            <span>Crear grupo</span>
           </button>
 
         <Modal
@@ -109,69 +109,39 @@ const page = () => {
             minHeight: 320
           }}>
             <Typography variant="h6" component="h2" sx={{ mb: 2, fontWeight: 400, letterSpacing: 0.5, color: '#222', fontSize: '1.35rem' }}>
-              Create New Group
+              Crea grupo nuevo
             </Typography>
             <form onSubmit={handleSubmit}>
               <TextField
                 fullWidth
-                label="Group Name"
-                variant="standard"
+                label="Nombre del grupo"
+                variant="outlined"
                 value={newGroup.name}
                 onChange={(e) => setNewGroup({ ...newGroup, name: e.target.value })}
-                InputProps={{
-                  disableUnderline: true,
-                  sx: {
-                    background: '#f5f6fa',
-                    borderRadius: 2,
-                    px: 2,
-                    py: 1.2,
-                    fontWeight: 400,
-                    fontSize: '1rem',
-                    boxShadow: 'none',
-                    border: '1px solid #e5e7eb',
-                    '&:focus-within': { borderColor: '#6366f1' }
-                  }
-                }}
-                InputLabelProps={{ sx: { color: '#888', fontWeight: 300, fontSize: '1rem' } }}
                 sx={{ mb: 2 }}
               />
               <TextField
                 fullWidth
-                label="Description"
-                variant="standard"
+                label="Descripción"
+                variant="outlined"
                 multiline
                 rows={4}
                 value={newGroup.description}
                 onChange={(e) => setNewGroup({ ...newGroup, description: e.target.value })}
-                InputProps={{
-                  disableUnderline: true,
-                  sx: {
-                    background: '#f5f6fa',
-                    borderRadius: 2,
-                    px: 2,
-                    py: 1.2,
-                    fontWeight: 400,
-                    fontSize: '1rem',
-                    boxShadow: 'none',
-                    border: '1px solid #e5e7eb',
-                    '&:focus-within': { borderColor: '#6366f1' }
-                  }
-                }}
-                InputLabelProps={{ sx: { color: '#888', fontWeight: 300, fontSize: '1rem' } }}
                 sx={{ mb: 3 }}
               />
               <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1.5 }}>
                 <Button 
                   onClick={() => setOpenModal(false)}
                   sx={{ color: '#6366f1', fontWeight: 400, borderRadius: 2, px: 2.5, py: 1, textTransform: 'none', boxShadow: 'none', background: 'none', '&:hover': { background: '#f3f4f6' } }}>
-                  Cancel
+                  Cancelar
                 </Button>
                 <Button
                   type="submit"
                   variant="contained"
                   sx={{ bgcolor: '#6366f1', color: '#fff', fontWeight: 400, borderRadius: 2, px: 2.5, py: 1, textTransform: 'none', boxShadow: 'none', '&:hover': { bgcolor: '#4f46e5' } }}
                 >
-                  Create Group
+                  Crear grupo
                 </Button>
               </Box>
             </form>
@@ -199,12 +169,12 @@ const page = () => {
         )}
         <button
           onClick={() => setOpenModal(true)}
-          className="h-[180px] border border-dashed border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center space-y-3 hover:border-indigo-500 hover:bg-indigo-50 transition-all duration-200 group"
+          className="h-[180px] cursor-pointer border border-dashed border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center space-y-3 hover:border-indigo-500 hover:bg-indigo-50 transition-all duration-200 group"
         >
           <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center group-hover:bg-indigo-200 transition-colors duration-200">
             <FaPlus className="text-indigo-600 text-sm" />
           </div>
-          <span className="text-gray-600 text-sm font-medium">Create New Group</span>
+          <span className="text-gray-600 text-sm font-medium">Crear nuevo grupo</span>
         </button>
       </div>
     </div>

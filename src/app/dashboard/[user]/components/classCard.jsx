@@ -21,7 +21,7 @@ const ClassCard = ({ name, students = [], onDelete, groupId }) => {
           <h3 className="text-lg font-medium text-gray-900 pr-8">{name}</h3>
           <div className="flex items-center space-x-2 text-gray-500 text-sm">
             <FaUsers className="text-gray-400" />
-            <span>{students.length} Students</span>
+            <span>{students.length} Estudiantes</span>
           </div>
         </div>
         <button
@@ -37,12 +37,12 @@ const ClassCard = ({ name, students = [], onDelete, groupId }) => {
       </div>
       <div className="mt-6 flex items-center justify-between text-sm">
         <Link href={`${pathname}/${groupId}`} className="text-indigo-600 font-medium group-hover:text-indigo-700 transition-colors duration-200 flex items-center">
-          View Details
+          Ver detalles
           <FaChevronRight className="ml-1 text-xs opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" />
         </Link>
         <div className="flex items-center space-x-2">
           <div className="h-2 w-2 rounded-full bg-green-500"></div>
-          <span className="text-gray-500">Active</span>
+          <span className="text-gray-500">Activo</span>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ const ClassCard = ({ name, students = [], onDelete, groupId }) => {
           borderRadius: 2
         }}>
           <Typography variant="h6" component="h2" sx={{ mb: 2 }}>
-            Delete Group
+            Borrar grupo
           </Typography>
           <Typography sx={{ mb: 3 }}>
             Estas seguro que quieres eliminar {name}? Esta accion no se puede deshacer.
@@ -71,9 +71,9 @@ const ClassCard = ({ name, students = [], onDelete, groupId }) => {
           <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
             <Button 
               onClick={() => setOpenDeleteModal(false)}
-              sx={{color: "green"}}
+              sx={{color: "blue"}}
             >
-              Cancel
+              Cancelar
             </Button>
             <Button
               onClick={handleDelete}

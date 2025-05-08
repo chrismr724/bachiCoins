@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@mui/material';
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField, IconButton } from '@mui/material';
+import { FaEdit, FaPlus, FaMinus } from 'react-icons/fa';
 
 const staticStudents = [
   {
@@ -33,6 +34,7 @@ const staticStudents = [
 
 const StudentList = ({ estudiantes = staticStudents, groupId }) => {
   const [open, setOpen] = useState(false);
+  const [updateOpen, setUpdateOpen] = useState(false);
   const [students, setStudents] = useState(estudiantes);
   const [newStudent, setNewStudent] = useState({
     Matricula: '',
@@ -40,6 +42,8 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
     Monedas: 0,
     GroupId: parseInt(groupId)
   });
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [coinAmount, setCoinAmount] = useState(0);
 
   const fetchStudents = async () => {
     try {
@@ -98,12 +102,56 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
     }
   };
 
+  const updateCoins = async () => {
+    try {
+      const response = await fetch('/api/students/update', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          Matricula: selectedStudent.Matricula,
+          Monedas: coinAmount
+        }),
+      });
+      console.log(selectedStudent)
+      console.log('Response status:', response);
+      if (response.ok) {
+        // Update local state
+        setStudents(prev => 
+          prev.map(student => 
+            student.Matricula === selectedStudent.Matricula 
+              ? {...student, Monedas: coinAmount} 
+              : student
+          )
+        );
+        handleUpdateClose();
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.error || 'Failed to update student coins'}`);
+      }
+    } catch (error) {
+      console.error('Error updating student coins:', error);
+    }
+  }
+
   useEffect(() => {
     fetchStudents();
   }, [groupId])
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  
+  const handleUpdateOpen = (student) => {
+    setSelectedStudent(student);
+    setCoinAmount(student.Monedas || 0);
+    setUpdateOpen(true);
+  };
+  
+  const handleUpdateClose = () => {
+    setUpdateOpen(false);
+    setSelectedStudent(null);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -112,7 +160,6 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
       [name]: value
     }));
   };
-  console.log(students)
   return (
     <div className="space-y-4 p-4">
       <Button
@@ -134,11 +181,11 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
           border: 'none',
         }}
       >
-        Add New Student
+        Agregar nuevo estudiante
       </Button>
 
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Add New Student</DialogTitle>
+        <DialogTitle>Agregar nuevo estudiante</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -179,10 +226,58 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Cancel
+            Cancelar
           </Button>
           <Button onClick={handleSubmit} color="primary" variant="contained">
-            Add Student
+            Añadir estudiante
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Update Coins Modal */}
+      <Dialog open={updateOpen} onClose={handleUpdateClose}>
+        <DialogTitle>Update Student Coins</DialogTitle>
+        <DialogContent>
+          {selectedStudent && (
+            <div className="py-2">
+              <p className="mb-4 font-medium">{selectedStudent.name}</p>
+              <div className="flex items-center space-x-2 mb-4">
+                <IconButton 
+                  onClick={() => setCoinAmount(prev => Math.max(0, prev - 1))}
+                  color="primary"
+                  size="small"
+                >
+                  <FaMinus />
+                </IconButton>
+                <TextField
+                  type="number"
+                  value={coinAmount}
+                  onChange={(e) => setCoinAmount(Math.max(0, parseInt(e.target.value) || 0))}
+                  InputProps={{ inputProps: { min: 0 } }}
+                  variant="outlined"
+                  size="small"
+                />
+                <IconButton 
+                  onClick={() => setCoinAmount(prev => prev + 1)}
+                  color="primary"
+                  size="small"
+                >
+                  <FaPlus />
+                </IconButton>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleUpdateClose} color="primary">
+            Cancelar
+          </Button>
+          <Button 
+            onClick={updateCoins} 
+            color="primary" 
+            variant="contained"
+          >
+            Actualizar bachi coins
           </Button>
         </DialogActions>
       </Dialog>
@@ -206,9 +301,13 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
             </h3>
           </div>
           <div className="flex items-center space-x-2">
-            <span className="px-3 py-1 text-xs bg-green-50 text-green-700 rounded-full border border-green-100">
-              {student.Monedas || 0} points
-            </span>
+            <button 
+              onClick={() => handleUpdateOpen(student)}
+              className="flex items-center space-x-1 px-3 py-1 text-xs bg-green-50 text-green-700 rounded-full border border-green-100 hover:bg-green-100 transition-colors cursor-pointer"
+            >
+              <span>{student.Monedas || 0} points</span>
+              <FaEdit className="ml-1 text-xs" />
+            </button>
           </div>
         </div>
       )))}

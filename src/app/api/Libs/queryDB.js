@@ -55,7 +55,7 @@ const queryDB = async ({ entity, filter, queryType, data }) => {
       return await db[entity].create({ ...opts })
 
     case 'update':
-      if (!opts?.where?.id) return ERROR.NOT_FOUND()
+      //if (!opts?.where?.id) return ERROR.NOT_FOUND()
       options = getOptions({ filter })
       element = await db[entity].findUnique(options)
       payload = element ? await db[entity].update({ ...opts }) : null

@@ -9,9 +9,9 @@ export default function AuthLayout({ children }) {
         <img src="/logoBachi.gif" className="w-[50%] m-auto object-contain z-10"/>
         <Link 
           href="/" 
-          className="absolute top-4 left-4 font-medium text-green-700 flex items-center gap-2 px-4 py-2 rounded-lg transition-colors duration-200 bg-white/10 backdrop-blur-sm z-10"
+          className="absolute top-4 left-4 font-medium text-green-500 flex items-center gap-2 px-4 py-2 rounded-lg transition-colors duration-200 bg-white/10 backdrop-blur-sm z-10"
         >
-          <FaHome className="text-lg" /> Back to home
+          <FaHome className="text-lg" /> Volver al inicio
         </Link>
       </div>
       <div className="m-auto h-screen overflow-auto">

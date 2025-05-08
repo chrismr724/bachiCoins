@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FaHome, FaUsers, FaCog, FaBars, FaTimes } from 'react-icons/fa';
+import { FaHome, FaBars, FaTimes } from 'react-icons/fa';
+import { TiArrowBack } from "react-icons/ti";
 
 
 const Sidebar = () => {
@@ -19,8 +20,8 @@ const Sidebar = () => {
   }, []);
 
   const navItems = [
-
-    { label: 'Dashboard', icon: FaHome, href: `/dashboard/${user?.name}` }
+    { label: 'Dashboard', icon: FaHome, href: `/dashboard/${user?.name}` },
+    { label: 'BachiCoins', icon: TiArrowBack, href: `/` }
   ];
 
   return (

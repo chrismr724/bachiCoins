@@ -43,7 +43,7 @@ const page = () => {
       <div className="max-w-md w-full space-y-8 p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
-            Sign in to your account
+            Ingresar a tu cuenta
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ const page = () => {
           )}
           <div className="rounded-md shadow-sm space-y-4">
             <div>
-              <label htmlFor="email" className="sr-only">Email address</label>
+              <label htmlFor="email" className="sr-only">Correo electrónico</label>
               <input
                 id="email"
                 name="email"
@@ -62,13 +62,13 @@ const page = () => {
                 autoComplete="email"
                 required
                 className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 text-gray-900 dark:text-white dark:bg-gray-700 focus:outline-none focus:ring-green-700 focus:border-green-700 focus:z-10 sm:text-sm"
-                placeholder="Email address"
+                placeholder="Correo electrónico"
                 value={values.email || ''}
                 onChange={handleChange}
               />
             </div>
             <div>
-              <label htmlFor="password" className="sr-only">Password</label>
+              <label htmlFor="password" className="sr-only">Contraseña</label>
               <input
                 id="password"
                 name="password"
@@ -76,7 +76,7 @@ const page = () => {
                 autoComplete="current-password"
                 required
                 className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 text-gray-900 dark:text-white dark:bg-gray-700 focus:outline-none focus:ring-green-700 focus:border-green-700 focus:z-10 sm:text-sm"
-                placeholder="Password"
+                placeholder="Contraseña"
                 value={values.password || ''}
                 onChange={handleChange}
               />
@@ -95,10 +95,10 @@ const page = () => {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
                   </svg>
-                  Signing in...
+                  Iniciando sesión...
                 </div>
               ) : (
-                'Sign in'
+                'Iniciar sesión'
               )}
             </button>
           </div>
@@ -108,7 +108,7 @@ const page = () => {
               href="/signup"
               className="font-medium text-green-700 hover:text-green-600"
             >
-              Don't have an account? Sign up
+              No tienes una cuenta? Registrate
             </Link>
           </div>
         </form>

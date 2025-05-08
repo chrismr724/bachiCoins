@@ -15,6 +15,7 @@ const ClassPage = ({ params }) => {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const decodedUrl = decodeURIComponent(resolvedParams.class);
+  const userUrl = decodeURIComponent(resolvedParams.user);
   const fetchClassData = async () => {
     try {
       const response = await fetch(`/api/groups/${decodedUrl}`, {
@@ -58,7 +59,7 @@ const ClassPage = ({ params }) => {
     <div>
       <div className='mb-7 ml-3 flex items-center justify-center w-10'>
         <Link 
-          href={`/dashboard/${decodedUrl.split('/')[0]}`}
+          href={`/dashboard/${userUrl}`}
           className='flex items-center justify-center w-16 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200'>
           <IoIosArrowBack />
         </Link>
@@ -81,7 +82,7 @@ const ClassPage = ({ params }) => {
           <CardContent className="flex items-center gap-3">
             <FaUsers className="text-3xl text-gray-400" />
             <div>
-              <Typography variant="body2" sx={{ color: '#666', fontWeight: 400 }}>Total Students</Typography>
+              <Typography variant="body2" sx={{ color: '#666', fontWeight: 400 }}>Estudiantes totales</Typography>
               <Typography variant="h5" sx={{ fontWeight: 300, color: '#222' }}>{students.length}</Typography>
             </div>
           </CardContent>
@@ -90,7 +91,7 @@ const ClassPage = ({ params }) => {
           <CardContent className="flex items-center gap-3">
             <FaCoins className="text-3xl text-gray-400" />
             <div>
-              <Typography variant="body2" sx={{ color: '#666', fontWeight: 400 }}>Average Coins</Typography>
+              <Typography variant="body2" sx={{ color: '#666', fontWeight: 400 }}>BachiCoins en promedio</Typography>
               <Typography variant="h5" sx={{ fontWeight: 300, color: '#222' }}>
                 {students.length > 0
                   ? Math.round(students.reduce((acc, student) => acc + (student.Monedas || 0), 0) / students.length)
@@ -103,7 +104,7 @@ const ClassPage = ({ params }) => {
           <CardContent className="flex items-center gap-3">
             <FaChartBar className="text-3xl text-gray-400" />
             <div>
-              <Typography variant="body2" sx={{ color: '#666', fontWeight: 400 }}>Active Tasks</Typography>
+              <Typography variant="body2" sx={{ color: '#666', fontWeight: 400 }}>Subastas activas</Typography>
               <Typography variant="h5" sx={{ fontWeight: 300, color: '#222' }}>{classData.activeTasks || 0}</Typography>
             </div>
           </CardContent>
@@ -112,7 +113,7 @@ const ClassPage = ({ params }) => {
 
       {/* Students List & Subasta */}
       <div className="flex flex-col md:flex-row gap-8">
-        <div className="flex-1 bg-gray-50 rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div className="flex-1/6 bg-gray-50 rounded-2xl p-6 shadow-sm border border-gray-100">
           <Typography variant="h6" sx={{ mb: 2, fontWeight: 400, color: '#222' }}>
             Students
           </Typography>
@@ -120,7 +121,7 @@ const ClassPage = ({ params }) => {
             <StudentList estudiantes={students} groupId={parseInt(decodedUrl)} />
           </List>
         </div>
-        <div className="flex-1 bg-gray-50 rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div className="flex-1/2 bg-gray-50 rounded-2xl p-6 shadow-sm border border-gray-100">
           <Subasta />
         </div>
       </div>
