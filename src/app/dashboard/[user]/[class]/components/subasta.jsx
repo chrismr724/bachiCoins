@@ -31,7 +31,7 @@ const Subasta = () => {
       <div className="flex items-center justify-center space-x-8 mt-2">
         <button
           onClick={handleDecrement}
-          className="p-3 rounded-full bg-red-50 hover:bg-red-100 text-red-500 font-bold text-xl transition-colors duration-200 border border-red-100 shadow-none focus:outline-none"
+          className="px-3 py-1 rounded-full bg-red-50 hover:bg-red-100 text-red-500 font-bold text-xl transition-colors duration-200 border border-red-100 shadow-none focus:outline-none"
         >
           -
         </button>
@@ -46,7 +46,9 @@ const Subasta = () => {
         </motion.div>
         <button
           onClick={handleIncrement}
-          className="p-3 rounded-full bg-green-50 hover:bg-green-100 text-green-600 font-bold text-xl transition-colors duration-200 border border-green-100 shadow-none focus:outline-none"
+          className="px-3 py-1 rounded-full bg-green-50 hover:bg-green-100 text-green-600 
+          font-bold text-xl transition-colors duration-200 border border-green-100 
+          shadow-none focus:outline-none"
         >
           +
         </button>

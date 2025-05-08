@@ -236,7 +236,7 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
 
       {/* Update Coins Modal */}
       <Dialog open={updateOpen} onClose={handleUpdateClose}>
-        <DialogTitle>Update Student Coins</DialogTitle>
+        <DialogTitle>Actualizar BachiCoins del estudiante</DialogTitle>
         <DialogContent>
           {selectedStudent && (
             <div className="py-2">
@@ -277,7 +277,7 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
             color="primary" 
             variant="contained"
           >
-            Actualizar bachi coins
+            Actualizar
           </Button>
         </DialogActions>
       </Dialog>
@@ -293,7 +293,7 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
       students.map((student, index) => (
         <div
           key={index}
-          className="bg-white dark:bg-gray-50 rounded-xl shadow-sm p-6 flex items-center justify-between border border-gray-100"
+          className="bg-white dark:bg-gray-50 rounded-xl shadow-sm p-6 flex-col md:flex items-center justify-between border border-gray-100"
         >
           <div>
             <h3 className="text-base font-normal text-gray-900 dark:text-gray-800">
@@ -305,7 +305,7 @@ const StudentList = ({ estudiantes = staticStudents, groupId }) => {
               onClick={() => handleUpdateOpen(student)}
               className="flex items-center space-x-1 px-3 py-1 text-xs bg-green-50 text-green-700 rounded-full border border-green-100 hover:bg-green-100 transition-colors cursor-pointer"
             >
-              <span>{student.Monedas || 0} points</span>
+              <span>{student.Monedas || 0} Coins</span>
               <FaEdit className="ml-1 text-xs" />
             </button>
           </div>

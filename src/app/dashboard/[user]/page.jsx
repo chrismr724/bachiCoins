@@ -80,14 +80,13 @@ const page = () => {
   return (
     <div className="p-8 w-full bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-8 gap-3">
           <h1 className="text-3xl font-medium text-gray-900">Mis grupos</h1>
           <button
             onClick={() => setOpenModal(true)}
-            className="flex items-center cursor-pointer space-x-2 px-6 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all duration-200 text-sm font-medium shadow-sm hover:shadow"
+            className="flex items-center cursor-pointer space-x-2 px-2.5 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all duration-200 text-sm font-medium shadow-sm hover:shadow"
           >
             <FaPlus className="text-sm" />
-            <span>Crear grupo</span>
           </button>
 
         <Modal
@@ -139,8 +138,7 @@ const page = () => {
                 <Button
                   type="submit"
                   variant="contained"
-                  className='bg-black hidden md:flex'
-                  sx={{ color: '#fff', fontWeight: 400, borderRadius: 2, px: 2.5, py: 1, textTransform: 'none', boxShadow: 'none', '&:hover': { bgcolor: '#4f46e5' } }}
+                  sx={{ bgcolor: '#6366f1', color: '#fff', fontWeight: 400, borderRadius: 2, px: 2.5, py: 1, textTransform: 'none', boxShadow: 'none', '&:hover': { bgcolor: '#4f46e5' } }}
                 >
                   Crear grupo
                 </Button>

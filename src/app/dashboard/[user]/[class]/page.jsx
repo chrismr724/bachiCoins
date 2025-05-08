@@ -56,7 +56,7 @@ const ClassPage = ({ params }) => {
     );
   }
   return (
-    <div>
+    <div className='w-[88%]'>
       <div className='mb-7 ml-3 flex items-center justify-center w-10'>
         <Link 
           href={`/dashboard/${userUrl}`}
@@ -83,7 +83,7 @@ const ClassPage = ({ params }) => {
             <FaUsers className="text-3xl text-gray-400" />
             <div>
               <Typography variant="body2" sx={{ color: '#666', fontWeight: 400 }}>Estudiantes totales</Typography>
-              <Typography variant="h5" sx={{ fontWeight: 300, color: '#222' }}>{students.length}</Typography>
+              <Typography variant="h5" sx={{ fontWeight: 300, color: '#222' }}>{students?.length}</Typography>
             </div>
           </CardContent>
         </Card>
@@ -93,8 +93,8 @@ const ClassPage = ({ params }) => {
             <div>
               <Typography variant="body2" sx={{ color: '#666', fontWeight: 400 }}>BachiCoins en promedio</Typography>
               <Typography variant="h5" sx={{ fontWeight: 300, color: '#222' }}>
-                {students.length > 0
-                  ? Math.round(students.reduce((acc, student) => acc + (student.Monedas || 0), 0) / students.length)
+                {students?.length > 0
+                  ? Math.round(students?.reduce((acc, student) => acc + (student.Monedas || 0), 0) / students?.length)
                   : 0}
               </Typography>
             </div>
