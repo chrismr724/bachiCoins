@@ -139,7 +139,8 @@ const page = () => {
                 <Button
                   type="submit"
                   variant="contained"
-                  sx={{ bgcolor: '#6366f1', color: '#fff', fontWeight: 400, borderRadius: 2, px: 2.5, py: 1, textTransform: 'none', boxShadow: 'none', '&:hover': { bgcolor: '#4f46e5' } }}
+                  className='bg-black hidden md:flex'
+                  sx={{ color: '#fff', fontWeight: 400, borderRadius: 2, px: 2.5, py: 1, textTransform: 'none', boxShadow: 'none', '&:hover': { bgcolor: '#4f46e5' } }}
                 >
                   Crear grupo
                 </Button>
